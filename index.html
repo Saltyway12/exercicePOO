@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+			crossorigin="anonymous" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Suite d'Applications POO</title>
+		<script type="module" src="script.js"></script>
+	</head>
+	<body>
+		<!-- Barre de navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<i class="fas fa-laptop-code me-2"></i>Suite d'Applications POO
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</nav>
+
+		<!-- Conteneur principal -->
+		<div class="app-container">
+			<!-- En-tête avec sélecteur d'application -->
+			<div class="app-header">
+				<div class="row align-items-center">
+					<div class="col-md-6">
+						<h3 class="mb-0">
+							<i class="fas fa-th-large me-2"></i>Choisissez une application
+							<small class="text-body-secondary d-block mt-1"
+								>Découvrez nos applications interactives basées sur la
+								POO</small
+							>
+						</h3>
+					</div>
+					<div class="col-md-6">
+						<div class="input-group">
+							<span class="input-group-text"
+								><i class="fas fa-search"></i
+							></span>
+							<select id="appli" class="form-select form-select-lg app-select">
+								<option selected value="default">
+									Sélectionnez une application
+								</option>
+								<option value="justePrix">Juste Prix</option>
+								<option value="paint">Paint</option>
+								<option value="slider">Slider</option>
+							</select>
+						</div>
+						<div class="d-none d-md-block mt-2 text-end">
+							<small class="text-muted"
+								>Raccourci: <kbd>Alt</kbd> + <kbd>A</kbd> pour ouvrir le
+								sélecteur</small
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Contenu de l'application -->
+			<div class="app-content appli">
+				<!-- Le contenu des applications sera chargé ici dynamiquement -->
+			</div>
+		</div>
+
+		<!-- Pied de page -->
+		<footer>
+			<div class="container">
+				<p class="mb-0">
+					© 2025 Suite d'Applications POO - Tous droits réservés
+				</p>
+			</div>
+		</footer>
+
+		<!-- Modal d'aide -->
+		<div class="modal fade" id="helpModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">
+							<i class="fas fa-question-circle me-2"></i>Aide
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<h6>Comment utiliser nos applications :</h6>
+						<ul class="list-group list-group-flush mb-3">
+							<li class="list-group-item">
+								<strong>Juste Prix :</strong> Essayez de deviner le nombre
+								mystère. Après chaque tentative, vous saurez si vous devez
+								chercher plus haut ou plus bas.
+							</li>
+							<li class="list-group-item">
+								<strong>Paint :</strong> Dessinez librement avec différents
+								outils (stylo, carré, cercle) et couleurs. Utilisez les
+								raccourcis clavier pour plus d'efficacité.
+							</li>
+							<li class="list-group-item">
+								<strong>Slider :</strong> Naviguez entre les images avec les
+								flèches ou les points de navigation en bas du diaporama.
+							</li>
+						</ul>
+						<h6>Raccourcis clavier :</h6>
+						<div class="table-responsive">
+							<table class="table table-sm">
+								<thead>
+									<tr>
+										<th>Touche</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><kbd>Alt</kbd> + <kbd>A</kbd></td>
+										<td>Ouvrir le sélecteur d'applications</td>
+									</tr>
+									<tr>
+										<td><kbd>Echap</kbd></td>
+										<td>Revenir à l'écran d'accueil</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-primary"
+							data-bs-dismiss="modal">
+							Compris !
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal À propos -->
+		<div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">
+							<i class="fas fa-info-circle me-2"></i>À propos
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<h6>Suite d'Applications POO</h6>
+						<p>
+							Cette suite d'applications a été développée pour démontrer les
+							concepts de la Programmation Orientée Objet (POO) en JavaScript.
+						</p>
+						<p>
+							Chaque application est encapsulée dans sa propre classe, suivant
+							les principes de la POO :
+						</p>
+						<ul>
+							<li>
+								<strong>Encapsulation :</strong> Chaque application gère son
+								propre état et ses propres méthodes
+							</li>
+							<li>
+								<strong>Héritage :</strong> Organisation du code en classes
+								réutilisables
+							</li>
+							<li>
+								<strong>Polymorphisme :</strong> Interface commune pour toutes
+								les applications (init, destroy)
+							</li>
+						</ul>
+						<p>
+							Version actuelle : <span class="badge bg-primary">1.0.0</span>
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal">
+							Fermer
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JavaScript Bootstrap -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-DfD1DLe61Wj1i44bwm5HfmfbKnvTmmy27uU8ARjJ1SZ+3obm8Qj1kAeQPu/z4iF6"
+			crossorigin="anonymous"></script>
+	</body>
+</html>
