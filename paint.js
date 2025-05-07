@@ -122,6 +122,7 @@ export class Paint {
 		this.btnLoad = this.container.querySelector(".btn-load");
 		this.btnsTool = this.container.querySelectorAll(".btn-tool");
 	}
+
 	injectCSS() {
 		if (document.getElementById("paint-styles")) return;
 
@@ -162,9 +163,9 @@ export class Paint {
 
         .paint-app-container .canvas-container {
             position: relative;
-            width: 75dvw;
+            width: 100%;
             height: 75dvh;
-            border : 2px solid black;
+            border: 2px solid black;
         }
 
         .paint-app-container .paint-app[data-tool="square"],
@@ -179,6 +180,7 @@ export class Paint {
 
 		document.head.appendChild(styleElement);
 	}
+
 	/**
 	 * Initialise les écouteurs d'événements
 	 */
@@ -254,25 +256,17 @@ export class Paint {
 			);
 
 			// Nouveau dimensionnement
-			const paintContainer = this.container.querySelector(
-				".paint-app-container"
-			);
-			const interfaceHeight =
-				this.container.querySelector(".interface").offsetHeight;
-			this.canvas.width = paintContainer.clientWidth;
-			this.canvas.height = paintContainer.clientHeight - interfaceHeight;
+			const canvasContainer = this.container.querySelector(".canvas-container");
+			this.canvas.width = canvasContainer.clientWidth - 4; // -4 pour compenser la bordure de 2px de chaque côté
+			this.canvas.height = canvasContainer.clientHeight - 4; // -4 pour compenser la bordure de 2px en haut et en bas
 
 			// Restauration du contenu
 			this.ctx.putImageData(snapshot, 0, 0);
 		} else {
 			// Premier dimensionnement
-			const paintContainer = this.container.querySelector(
-				".paint-app-container"
-			);
-			const interfaceHeight =
-				this.container.querySelector(".interface").offsetHeight;
-			this.canvas.width = paintContainer.clientWidth;
-			this.canvas.height = paintContainer.clientHeight - interfaceHeight;
+			const canvasContainer = this.container.querySelector(".canvas-container");
+			this.canvas.width = canvasContainer.clientWidth - 4; // -4 pour compenser la bordure de 2px de chaque côté
+			this.canvas.height = canvasContainer.clientHeight - 4; // -4 pour compenser la bordure de 2px en haut et en bas
 		}
 
 		// Configuration du contexte
