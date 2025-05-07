@@ -301,7 +301,8 @@ export class Slider {
       .slider-container {
         position: relative;
         width: 100%;
-        height: 450px;
+        height: 0;
+        padding-bottom: 56.25%; /* Ratio 16:9 pour une meilleure proportion */
         margin: 0 auto;
         overflow: hidden;
         background-color: #f5f5f5;
@@ -309,9 +310,11 @@ export class Slider {
       
       /* Zone de contenu */
       .slider-content {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        position: relative;
       }
       
       /* Éléments du slider */
@@ -332,12 +335,12 @@ export class Slider {
       
       .slider-caption {
         position: absolute;
-        bottom: 50px;
+        bottom: 0; /* Ancré au bas de l'image */
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7); /* Fond plus opaque */
         color: white;
-        padding: 10px;
+        padding: 15px; /* Plus d'espace */
         text-align: center;
         transform: translateY(100%);
         opacity: 0;
@@ -393,18 +396,19 @@ export class Slider {
       /* Contrôles */
       .slider-controls {
         position: absolute;
-        bottom: 0;
+        bottom: 10px; /* Position légèrement plus élevée */
         left: 0;
         right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        z-index: 2; /* Assurer que les contrôles sont au-dessus de la légende */
       }
       
       .slider-dots {
         display: flex;
         justify-content: center;
-        margin: 10px 0;
+        margin-bottom: 20px; /* Plus d'espace en bas */
       }
       
       .slider-dot {
@@ -544,6 +548,7 @@ export class Slider {
       
       .slider-app-container.fullscreen .slider-container {
         height: 100%;
+        padding-bottom: 0;
       }
       
       /* Toast */
@@ -899,6 +904,9 @@ export class Slider {
 
 			// Demander le plein écran au navigateur si possible
 			if (container.requestFullscreen) {
+				container.requestFullscreen();
+			} else if (container.mozRequestFullScreen) {
+				container.mozRequestFullScreen();
 				container.requestFullscreen();
 			} else if (container.mozRequestFullScreen) {
 				container.mozRequestFullScreen();
